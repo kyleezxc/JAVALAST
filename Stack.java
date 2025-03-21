@@ -1,6 +1,8 @@
+import java.time.LocalDate;
+
 public class Stack {
     StackNode head;
-
+    LocalDate date = LocalDate.now();
     public boolean isEmpty(){
         if(head == null){
             return true;
@@ -9,8 +11,8 @@ public class Stack {
         }
     }
 
-    public void storeBook(int bookID, String bookTitle, String bookAuthor, String bookBorrower, String dateBorrowed){
-        StackNode newNode = new StackNode(bookID, bookTitle, bookAuthor, bookBorrower, dateBorrowed);
+    public void storeBook(int bookID, String bookTitle, String bookAuthor, String bookBorrower, LocalDate date){
+        StackNode newNode = new StackNode(bookID, bookTitle, bookAuthor, bookBorrower, date);
 
         if(isEmpty()){
             head = newNode;
@@ -32,7 +34,7 @@ public class Stack {
         System.out.println("Book Borrowed History");
         while(current != null){
             System.out.println("Book ID       : " + current.bookID + "\nBook Title    : " + current.bookTitle + "\nBook Author   : " + current.bookAuthor + "\nBook Borrower : " 
-            + current.bookBorrower + "\nDate Borrowed : " + current.dateBorrowed);
+            + current.bookBorrower + "\nDate Borrowed : " + date);
             current = current.next;
         }
     }
