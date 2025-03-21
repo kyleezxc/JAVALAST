@@ -57,7 +57,7 @@ public class SinglyLinkedList {
 
       while (current != null) {
          if (current.bookTitle.equalsIgnoreCase(title)) {
-            System.out.println("--- Book Found ---");
+            System.out.println("\n--- Book Found ---");
             System.out.println("Book ID: " + current.bookID + "\nBook Title: " + current.bookTitle + "\nBook Author: "
                   + current.bookAuthor);
             System.out.println("----------------");
