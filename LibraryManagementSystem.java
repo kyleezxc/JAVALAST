@@ -1,6 +1,7 @@
 // Coded By: BISAYA CODERS TOO
 // Done By: 03/21/2025
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class LibraryManagementSystem {
@@ -10,9 +11,10 @@ public class LibraryManagementSystem {
       SinglyLinkedList bookList = new SinglyLinkedList();
       DoublyLinkedList borrowList = new DoublyLinkedList();
       Stack borrowedHistory = new Stack();
+      LocalDate date = LocalDate.now();
 
       int option, bookID;
-      String bookTitle, bookAuthor, bookBorrower, dateBorrowed;
+      String bookTitle, bookAuthor, bookBorrower;
 
       while (true) {
          try {
@@ -62,15 +64,12 @@ public class LibraryManagementSystem {
                   } else {
                      System.out.print("Enter Book's Borrower: ");
                      bookBorrower = scan.nextLine();
-                     System.out.print("Enter Date Borrowed(D/M/Y): ");
-                     dateBorrowed = scan.nextLine();
-
                      // after getting user input, the data that is in borrowed node will be passed to the 
                      // borrow list (Doubly)
                      borrowList.borrowBook(borrowed);
 
                      // will also store the data's in book borrowed history(stack)
-                     borrowedHistory.storeBook(borrowed.bookID, borrowed.bookTitle, borrowed.bookAuthor, bookBorrower, dateBorrowed);
+                     borrowedHistory.storeBook(borrowed.bookID, borrowed.bookTitle, borrowed.bookAuthor, bookBorrower, date);
                   }
                   break;
 
@@ -103,7 +102,7 @@ public class LibraryManagementSystem {
          } catch (InputMismatchException e) {
             System.out.println("-------------------------------");
             System.out.println("Invalid Input Type, Please Try Again :)");
-            main(args);
+            scan.nextLine();
          }
       }
    }
